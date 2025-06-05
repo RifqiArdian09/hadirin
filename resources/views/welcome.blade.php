@@ -159,7 +159,6 @@
     </div>
 
     <!-- Prints Tab -->
-    <!-- Prints Tab -->
 <div id="tab2" class="hidden grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 transition-opacity duration-300">
   <!-- Rectangle Card (Full width) -->
   <a href="{{ route('print.harian') }}" class="bg-white rounded-xl shadow-card hover:shadow-card-hover hover:scale-[1.02] transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">

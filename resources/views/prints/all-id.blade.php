@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cetak Kartu Anggota - SMKN 1 Kota Bengkulu</title>
+  <title>Cetak Kartu Anggota</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -97,6 +97,34 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
+    
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .id-card {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 320px;
+      }
+      .header-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .header-buttons button {
+        flex: 1 1 120px;
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .user-details {
+        font-size: 14px;
+      }
+      .qr-container {
+        width: 80px;
+        height: 80px;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -122,17 +150,17 @@
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h2 class="text-xl font-semibold text-gray-800">Kartu Anggota</h2>
-          <p class="text-gray-600">Dicetak pada: {{ date('d F Y H:i') }}</p>
-          <p class="text-sm text-gray-500 mt-1">Total: {{ count($users) }} anggota</p>
+          <p class="text-gray-600">Dicetak pada: <span id="print-date">{{ date('d F Y H:i') }}</span></p>
+          <p class="text-sm text-gray-500 mt-1">Total: <span id="total-members">{{ count($users) }}</span> anggota</p>
         </div>
-        <div class="flex gap-2">
+        <div class="flex flex-wrap gap-2 header-buttons">
           <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
             <i class="fas fa-print"></i>
-            Cetak Semua
+            <span class="hidden sm:inline">Cetak</span> Semua
           </button>
           <button onclick="printSelected()" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
             <i class="fas fa-print"></i>
-            Cetak Terpilih
+            <span class="hidden sm:inline">Cetak</span> Terpilih
           </button>
           <button onclick="selectAllCards()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
             <i class="fas fa-check-circle"></i>
@@ -167,7 +195,7 @@
             </div>
             
             <!-- User Details -->
-            <div class="flex-grow">
+            <div class="flex-grow user-details">
               <div class="space-y-2">
                 <div>
                   <p class="text-xs font-medium text-gray-500">ID Anggota</p>
@@ -215,9 +243,44 @@
       </script>
       @endforeach
     </div>
+    
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden text-center py-12">
+      <div class="mx-auto w-24 h-24 text-gray-400 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h3 class="text-lg font-medium text-gray-900">Tidak ada kartu anggota</h3>
+      <p class="mt-1 text-sm text-gray-500">Tidak ada data anggota yang tersedia untuk ditampilkan.</p>
+    </div>
   </div>
 
   <script>
+    // Check if there are any users, if not show empty state
+    document.addEventListener('DOMContentLoaded', function() {
+      const totalMembers = parseInt(document.getElementById('total-members').textContent);
+      if (totalMembers === 0) {
+        document.getElementById('empty-state').classList.remove('hidden');
+      }
+      
+      // Update print date in real-time
+      updatePrintDate();
+      setInterval(updatePrintDate, 60000); // Update every minute
+    });
+    
+    function updatePrintDate() {
+      const now = new Date();
+      const options = { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      };
+      document.getElementById('print-date').textContent = now.toLocaleDateString('id-ID', options);
+    }
+    
     // Auto-print after 1 second (optional)
     window.onload = function() {
       setTimeout(function() {
@@ -234,6 +297,11 @@
       checkboxes.forEach(checkbox => {
         checkbox.checked = !allChecked;
       });
+      
+      // Change button text based on state
+      const button = document.querySelector('[onclick="selectAllCards()"]');
+      const icon = button.querySelector('i');
+      icon.className = allChecked ? 'fas fa-check-circle' : 'fas fa-times-circle';
     }
     
     // Print selected cards function
@@ -248,8 +316,15 @@
         return;
       }
       
+      // Store original display values
+      const originalDisplays = [];
+      const cards = document.querySelectorAll('.id-card');
+      cards.forEach(card => {
+        originalDisplays.push(card.style.display);
+      });
+      
       // Hide all cards first
-      document.querySelectorAll('.id-card').forEach(card => {
+      cards.forEach(card => {
         card.style.display = 'none';
       });
       
@@ -265,14 +340,28 @@
       setTimeout(() => {
         window.print();
         
-        // After printing, show all cards again
+        // After printing, restore original display values
         setTimeout(() => {
-          document.querySelectorAll('.id-card').forEach(card => {
-            card.style.display = 'block';
+          cards.forEach((card, index) => {
+            card.style.display = originalDisplays[index] || '';
           });
         }, 500);
       }, 200);
     }
+    
+    // Handle window resize for better mobile experience
+    window.addEventListener('resize', function() {
+      // Adjust card layout if needed
+      if (window.innerWidth < 640) {
+        document.querySelectorAll('.id-card').forEach(card => {
+          card.style.maxWidth = '320px';
+        });
+      } else {
+        document.querySelectorAll('.id-card').forEach(card => {
+          card.style.maxWidth = '';
+        });
+      }
+    });
   </script>
 </body>
 </html>

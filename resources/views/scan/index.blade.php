@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scan QR Code - Sistem Presensi</title>
+  <title>Scan QR Code</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com"></script>

@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generate ID Anggota - QR Code PNG</title>
-  <!-- Include Tailwind CSS -->
+  <title>Generate ID Anggota</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Include Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Include QR Code library -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <style>
     /* Styling untuk tombol aksi di mobile */
