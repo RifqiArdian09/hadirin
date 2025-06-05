@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cetak Kartu Anggota</title>
+  <title>Cetak Kartu Anggota - SMKN 1 Kota Bengkulu</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
     @media print {
       body { 
         background-color: white;
@@ -20,10 +26,15 @@
       .id-card {
         page-break-inside: avoid;
         box-shadow: none;
-        margin: 10px;
+        margin: 0;
+        border: 1px solid #e5e7eb !important;
       }
       .hover\:shadow-lg {
         box-shadow: none !important;
+      }
+      @page {
+        size: auto;
+        margin: 5mm;
       }
     }
     
@@ -31,7 +42,9 @@
       background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     }
     
-   
+    .school-logo {
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
     
     /* Animation for cards */
     @keyframes fadeIn {
@@ -50,12 +63,46 @@
     .id-card:nth-child(4) { animation-delay: 0.4s; }
     .id-card:nth-child(5) { animation-delay: 0.5s; }
     .id-card:nth-child(n+6) { animation-delay: 0.6s; }
+    
+    /* Improved card styling */
+    .id-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+    }
+    
+    .id-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Gradient header */
+    .card-header-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+      height: 8px;
+    }
+    
+    /* QR code styling */
+    .qr-container {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 8px;
+      background: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Print optimization */
+    .print-optimized {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-50 min-h-screen">
 
   <!-- Header -->
-  <header class="bg-white shadow-sm">
+  <header class="bg-white shadow-sm print:hidden">
     <div class="max-w-7xl mx-auto px-4 py-3 sm:py-4 sm:px-6 lg:px-8 flex justify-between items-center">
       <div class="flex items-center space-x-3 sm:space-x-4">
         <a href="{{ url('/') }}" class="text-gray-600 hover:text-gray-900 transition-colors" title="Kembali ke Beranda">
@@ -67,54 +114,75 @@
           Cetak Kartu Anggota
         </h1>
       </div>
-    </div>
   </header>
 
-  <div class="max-w-7xl mx-auto p-4 sm:p-6">
+  <div class="max-w-7xl mx-auto p-4 sm:p-6 print:p-2">
     <!-- Header Section -->
-    <div class="bg-white rounded-lg shadow p-6 mb-6">
+    <div class="bg-white rounded-lg shadow p-6 mb-6 print:hidden">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h2 class="text-xl font-semibold text-gray-800">Kartu Anggota</h2>
           <p class="text-gray-600">Dicetak pada: {{ date('d F Y H:i') }}</p>
+          <p class="text-sm text-gray-500 mt-1">Total: {{ count($users) }} anggota</p>
         </div>
-        <div class="flex gap-2 no-print">
+        <div class="flex gap-2">
           <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
             <i class="fas fa-print"></i>
             Cetak Semua
+          </button>
+          <button onclick="printSelected()" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
+            <i class="fas fa-print"></i>
+            Cetak Terpilih
+          </button>
+          <button onclick="selectAllCards()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
+            <i class="fas fa-check-circle"></i>
+            Pilih Semua
           </button>
         </div>
       </div>
     </div>
 
     <!-- Cards Container -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 print:grid-cols-2 print:gap-4">
       @foreach ($users as $user)
-      <div class="id-card bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200">
+      <div class="id-card bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 print-optimized">
         <!-- Card Header -->
-        <div class="bg-gradient-to-r from-blue-500 to-green-500 h-2 w-full"></div>
+        <div class="card-header-gradient w-full"></div>
         
         <!-- Card Content -->
         <div class="p-5">
-          <h3 class="text-lg font-bold text-center text-gray-800 mb-4">{{ $user->name }}</h3>
+          <!-- School Logo and Name -->
+          <div class="flex justify-center items-center mb-4 gap-3">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo Sekolah" class="school-logo h-12 w-12">
+            <div class="text-center">
+              <h3 class="text-lg font-bold text-gray-800">{{ $user->name }}</h3>
+              <p class="text-xs text-gray-500">SMKN 1 Kota Bengkulu</p>
+            </div>
+          </div>
           
-          <div class="flex flex-col sm:flex-row gap-4">
+          <div class="flex flex-col sm:flex-row gap-4 items-center">
             <!-- QR Code -->
             <div class="flex-shrink-0 mx-auto sm:mx-0">
-              <div class="border border-gray-200 p-1 rounded" id="qrcode-{{ $user->id }}"></div>
+              <div class="qr-container" id="qrcode-{{ $user->id }}"></div>
             </div>
             
             <!-- User Details -->
             <div class="flex-grow">
               <div class="space-y-2">
                 <div>
-                  <p class="text-sm font-medium text-gray-500">ID Anggota</p>
-                  <p class="text-sm text-gray-800 font-mono">{{ $user->user_id }}</p>
+                  <p class="text-xs font-medium text-gray-500">ID Anggota</p>
+                  <p class="text-sm font-semibold text-gray-800 font-mono">{{ $user->user_id }}</p>
                 </div>
                 @if($user->gender)
                 <div>
-                  <p class="text-sm font-medium text-gray-500">Jenis Kelamin</p>
-                  <p class="text-sm text-gray-800">{{ ucfirst($user->gender) }}</p>
+                  <p class="text-xs font-medium text-gray-500">Jenis Kelamin</p>
+                  <p class="text-sm text-gray-800">{{ $user->gender == 'male' ? 'Laki-laki' : 'Perempuan' }}</p>
+                </div>
+                @endif
+                @if($user->class)
+                <div>
+                  <p class="text-xs font-medium text-gray-500">Kelas</p>
+                  <p class="text-sm text-gray-800">{{ $user->class }}</p>
                 </div>
                 @endif
               </div>
@@ -123,8 +191,12 @@
         </div>
         
         <!-- Card Footer -->
-        <div class="px-5 py-3 bg-gray-50 border-t border-gray-200">
-          <p class="text-xs text-gray-500 text-right">ID: {{ $user->id }} | {{ date('Y') }}</p>
+        <div class="px-5 py-3 bg-gray-50 border-t border-gray-200 flex justify-between items-center">
+          <div class="flex items-center print:hidden">
+            <input type="checkbox" class="card-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500" data-user-id="{{ $user->id }}">
+            <label class="ml-2 text-xs text-gray-500">Pilih untuk dicetak</label>
+          </div>
+          <p class="text-xs text-gray-500">ID: {{ $user->id }} | {{ date('Y') }}</p>
         </div>
       </div>
 
@@ -152,6 +224,54 @@
         // Uncomment to enable auto-print
         // window.print();
       }, 1000);
+    }
+    
+    // Select all cards function (toggle)
+    function selectAllCards() {
+      const checkboxes = document.querySelectorAll('.card-checkbox');
+      const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+      
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = !allChecked;
+      });
+    }
+    
+    // Print selected cards function
+    function printSelected() {
+      const selectedIds = [];
+      document.querySelectorAll('.card-checkbox:checked').forEach(checkbox => {
+        selectedIds.push(checkbox.dataset.userId);
+      });
+      
+      if (selectedIds.length === 0) {
+        alert('Silakan pilih setidaknya satu kartu untuk dicetak');
+        return;
+      }
+      
+      // Hide all cards first
+      document.querySelectorAll('.id-card').forEach(card => {
+        card.style.display = 'none';
+      });
+      
+      // Show only selected cards
+      selectedIds.forEach(id => {
+        const card = document.querySelector(`.card-checkbox[data-user-id="${id}"]`)?.closest('.id-card');
+        if (card) {
+          card.style.display = 'block';
+        }
+      });
+      
+      // Add a small delay before printing to ensure DOM is updated
+      setTimeout(() => {
+        window.print();
+        
+        // After printing, show all cards again
+        setTimeout(() => {
+          document.querySelectorAll('.id-card').forEach(card => {
+            card.style.display = 'block';
+          });
+        }, 500);
+      }, 200);
     }
   </script>
 </body>
