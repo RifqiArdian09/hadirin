@@ -55,19 +55,5 @@ php artisan migrate
 php artisan serve
 ```
 
-### 9. Kalau eror SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_hadirin5.sessions' doesn't exist (Connection: mysql, SQL: select * from sessions where id = Suo58Euw1g688Pj7R9Eq8XMjgGaADBkQTacjtoRq limit 1)
-```bash
-CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) unsigned DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_activity` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sessions_user_id_index` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-```
 
 Sc.Rifqi Ardian
