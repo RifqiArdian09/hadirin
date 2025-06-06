@@ -34,24 +34,30 @@ DB_PASSWORD=
 ```bash
 composer install
 ```
-### 4. Generate application key
+
+### 4. Copy file .env.example
+```bash
+copy .env.example .env
+```
+
+### 5. Generate application key
 ```bash
 php artisan key:generate
 ```
-### 5. Link storage untuk file upload
+### 6. Link storage untuk file upload
 ```bash
 php artisan storage:link
 ```
-### 6. Migrasi database
+### 7. Migrasi database
 ```bash
 php artisan migrate
 ```
-### 7. Jalankan aplikasi
+### 8. Jalankan aplikasi
 ```bash
 php artisan serve
 ```
 
-### 8.Kalau eror SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_hadirin5.sessions' doesn't exist (Connection: mysql, SQL: select * from sessions where id = Suo58Euw1g688Pj7R9Eq8XMjgGaADBkQTacjtoRq limit 1)
+### 9.Kalau eror SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_hadirin5.sessions' doesn't exist (Connection: mysql, SQL: select * from sessions where id = Suo58Euw1g688Pj7R9Eq8XMjgGaADBkQTacjtoRq limit 1)
 ```bash
 CREATE TABLE `sessions` (
   `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
