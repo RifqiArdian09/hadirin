@@ -19,8 +19,11 @@
 git clone https://github.com/arditam/hadirin.git
 cd hadirin
 ```
-
-### 2. Setup database pada komputer anda, lalu masukkan kredensial-kredensialnya ke file .env.
+### 2. Copy file .env.example
+```bash
+copy .env.example .env
+```
+### 3. Setup database pada komputer anda, lalu masukkan kredensial-kredensialnya ke file .env.
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -30,14 +33,9 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 3. Install dependency
+### 4. Install dependency
 ```bash
 composer install
-```
-
-### 4. Copy file .env.example
-```bash
-copy .env.example .env
 ```
 
 ### 5. Generate application key
@@ -57,7 +55,7 @@ php artisan migrate
 php artisan serve
 ```
 
-### 9.Kalau eror SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_hadirin5.sessions' doesn't exist (Connection: mysql, SQL: select * from sessions where id = Suo58Euw1g688Pj7R9Eq8XMjgGaADBkQTacjtoRq limit 1)
+### 9. Kalau eror SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_hadirin5.sessions' doesn't exist (Connection: mysql, SQL: select * from sessions where id = Suo58Euw1g688Pj7R9Eq8XMjgGaADBkQTacjtoRq limit 1)
 ```bash
 CREATE TABLE `sessions` (
   `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
