@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Data User </title>
-  <!-- Include Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Include Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Sc.Rifqi Ardian https://github.com/arditam -->
   <style>
-    /* Custom styling for form inputs */
     .form-input {
       transition: all 0.3s ease;
     }
@@ -189,3 +187,4 @@
   </div>
 </body>
 </html>
+<!-- Sc.Rifqi Ardian https://github.com/arditam -->

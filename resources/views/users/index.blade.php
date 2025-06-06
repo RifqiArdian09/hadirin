@@ -6,6 +6,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <title>User Management</title>
+  <!-- Sc.Rifqi Ardian https://github.com/arditam -->
   <style>
     /* Action buttons styling for mobile */
     @media (max-width: 640px) {
@@ -146,6 +147,6 @@
     </svg>
     <span class="sr-only">Add User</span>
   </a>
-
 </body>
 </html>
+<!-- Sc.Rifqi Ardian https://github.com/arditam -->
