@@ -185,7 +185,7 @@
     </a>
     
     <!-- Square Card 2 -->
-    <a href="{{ route('print.all.id') }}" class="card-square bg-white rounded-xl shadow-card hover:shadow-card-hover hover:scale-[1.02] transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
+    <a href="{{ route('print.card.id') }}" class="card-square bg-white rounded-xl shadow-card hover:shadow-card-hover hover:scale-[1.02] transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
       <div class="h-full p-4 md:p-6 flex flex-col">
         <div class="w-10 h-10 md:w-14 md:h-14 rounded-lg bg-blue-50 mb-3 md:mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200 mx-auto">
           <img src="https://img.icons8.com/ios-filled/50/1e40af/print.png" class="w-6 h-6 md:w-8 md:h-8" alt="Print ID" />

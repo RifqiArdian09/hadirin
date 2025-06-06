@@ -51,7 +51,7 @@ Route::get('/scan/success', [ScanController::class, 'scanSuccess'])->name('scan.
 Route::get('/scan/error', [ScanController::class, 'scanError'])->name('scan.error');
 // ====================== PRINT ======================
 Route::prefix('print')->group(function () {
-    Route::get('/all-id', [BulkPrintController::class, 'printAll'])->name('print.all.id');
+    Route::get('/card-id', [BulkPrintController::class, 'printCard'])->name('print.card.id');
 });
 
 Route::get('/print/harian', [DailyPrintController::class, 'printHarian'])->name('print.harian');

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class BulkPrintController extends Controller
 {
-    public function printAll()
+    public function printCard()
     {
         $users = User::all();
-        return view('prints.all-id', compact('users'));
+        return view('prints.card-id', compact('users'));
     }
 }
