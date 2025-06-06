@@ -6,7 +6,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <title>Edit Event</title>
-  <!-- Sc.Rifqi Ardian https://github.com/arditam -->
+  <!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->
   <style>
     .form-input {
       transition: all 0.3s ease;
@@ -171,4 +171,4 @@
 
 </body>
 </html>
-<!-- Sc.Rifqi Ardian https://github.com/arditam -->
+<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->

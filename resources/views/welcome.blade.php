@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Sc.Rifqi Ardian https://github.com/arditam -->
+  <!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->
   <script>
     tailwind.config = {
       theme: {
@@ -273,4 +273,4 @@
   </script>
 </body>
 </html>
-<!-- Sc.Rifqi Ardian https://github.com/arditam -->
+<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->
