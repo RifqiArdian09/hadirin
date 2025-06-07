@@ -34,3 +34,4 @@ class DailyPrintController extends Controller
 }
 
 }
+///<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->

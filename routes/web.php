@@ -56,3 +56,4 @@ Route::prefix('print')->group(function () {
 
 Route::get('/print/harian', [DailyPrintController::class, 'printHarian'])->name('print.harian');
 Route::get('/print/bulanan', [MonthlyPrintController::class, 'printBulanan'])->name('print.bulanan');
+///<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->

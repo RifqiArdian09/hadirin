@@ -103,3 +103,4 @@ class ScanController extends Controller
         ]);
     }
 }
+///<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->

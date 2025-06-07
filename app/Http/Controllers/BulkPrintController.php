@@ -13,3 +13,5 @@ class BulkPrintController extends Controller
         return view('prints.card-id', compact('users'));
     }
 }
+
+///<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->

@@ -74,3 +74,4 @@ class EventController extends Controller
         return redirect()->route('events.index')->with('success', 'Event berhasil dihapus.');
     }
 }
+///<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->

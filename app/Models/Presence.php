@@ -25,3 +25,4 @@ class Presence extends Model
         return $this->belongsTo(User::class);
     }
 }
+///<!-- Sc.Rifqi Ardian https://github.com/RifqiArdian09 -->
