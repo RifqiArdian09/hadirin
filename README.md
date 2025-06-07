@@ -18,11 +18,22 @@
 ### 📆 Halaman Print Kehadiran Harian
 ![Tampilan Halaman Print Kehadiran Harian](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_harian.jpg)
 
+### 📆 Cetak Harian
+![Tampilan Halaman Print Kehadiran Harian](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_harian.png)
+
+
 ### 🗓️ Halaman Print Kehadiran Bulanan
 ![Tampilan Halaman Print Kehadiran Bulanan](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_bulanan.jpg)
 
+### 🗓️ Cetak Bulanan
+![Tampilan Halaman Print Kehadiran Bulanan](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png)
+
 ### 🖨️ Halaman Print ID Anggota
 ![Tampilan Halaman Print ID Anggota](https://github.com/arditam/hadirin/blob/main/public/doc/print_id_anggota.jpg)
+
+### 🖨️ Cetak Kartu
+![Tampilan Halaman Print ID Anggota](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png)
+
 
 ## ⚙️ Setup Guide
 
