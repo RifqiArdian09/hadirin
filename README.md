@@ -39,7 +39,7 @@
 
 ### 1. Clone project
 ```bash
-git clone https://github.com/arditam/hadirin.git
+git clone https://github.com/RifqiArdian09/hadirin.git
 cd hadirin
 ```
 ### 2. Copy file .env.example
