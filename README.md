@@ -35,50 +35,5 @@
 ![Tampilan Halaman Print ID Anggota](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png)
 
 
-## ⚙️ Setup Guide
-
-### 1. Clone project
-```bash
-git clone https://github.com/arditam/hadirin.git
-cd hadirin
-```
-### 2. Copy file .env.example
-```bash
-copy .env.example .env
-```
-### 3. Setup database pada komputer anda, lalu masukkan kredensial-kredensialnya ke file .env.
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_hadirin5
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-### 4. Install dependency
-```bash
-composer install
-```
-
-### 5. Generate application key
-```bash
-php artisan key:generate
-```
-### 6. Link storage untuk file upload
-```bash
-php artisan storage:link
-```
-### 7. Migrasi database
-```bash
-php artisan migrate
-```
-### 8. Jalankan aplikasi
-```bash
-php artisan serve
-```
-
-
-Sc.Rifqi Ardian
 
 
