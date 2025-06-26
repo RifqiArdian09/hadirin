@@ -1,23 +1,28 @@
-## 🖼️ Tampilan Aplikasi Hadirin
+<h2>🖼️ Tampilan Aplikasi Hadirin</h2>
 
-| Halaman | Gambar |
-|--------|--------|
-| 🏠 Home | ![Home](https://github.com/arditam/hadirin/blob/main/public/doc/home.jpg) |
-| 👤 Input Anggota | ![Input Anggota](https://github.com/arditam/hadirin/blob/main/public/doc/input_anggota.jpg) |
-| 📝 Input Kegiatan | ![Input Kegiatan](https://github.com/arditam/hadirin/blob/main/public/doc/input_kegiatan.jpg) |
-| 🆔 Generate ID Anggota | ![Generate ID](https://github.com/arditam/hadirin/blob/main/public/doc/generate_id.jpg) |
-| 📷 Scan Kehadiran | ![Scan Kehadiran](https://github.com/arditam/hadirin/blob/main/public/doc/scan_kehadiran.jpg) |
-| 📆 Print Kehadiran Harian | ![Print Harian](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_harian.jpg) |
-| 🗓️ Print Kehadiran Bulanan | ![Print Bulanan](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_bulanan.jpg) |
-| 🖨️ Print ID Anggota | ![Print ID](https://github.com/arditam/hadirin/blob/main/public/doc/print_id_anggota.jpg) |
+<table>
+  <tr>
+    <td align="center"><b>🏠 Home</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/home.jpg" width="250"/></td>
+    <td align="center"><b>👤 Input Anggota</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/input_anggota.jpg" width="250"/></td>
+    <td align="center"><b>📝 Input Kegiatan</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/input_kegiatan.jpg" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>🆔 Generate ID</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/generate_id.jpg" width="250"/></td>
+    <td align="center"><b>📷 Scan Kehadiran</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/scan_kehadiran.jpg" width="250"/></td>
+    <td align="center"><b>📆 Print Harian</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_harian.jpg" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>🗓️ Print Bulanan</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_bulanan.jpg" width="250"/></td>
+    <td align="center"><b>🖨️ Print ID</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/print_id_anggota.jpg" width="250"/></td>
+    <td align="center"><b>📆 Cetak Harian</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_harian.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>🗓️ Cetak Bulanan</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png" width="250"/></td>
+    <td align="center"><b>🖨️ Cetak Kartu</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png" width="250"/></td>
+    <td></td>
+  </tr>
+</table>
 
-## 📦 Versi Cetak Tambahan
-
-| Halaman | Gambar |
-|--------|--------|
-| 📆 Cetak Harian | ![Cetak Harian](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_harian.png) |
-| 🗓️ Cetak Bulanan | ![Cetak Bulanan](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png) |
-| 🖨️ Cetak Kartu | ![Cetak Kartu](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png) |
 
 
 ## ⚙️ Setup Guide
