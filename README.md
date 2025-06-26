@@ -1,38 +1,23 @@
 ## 🖼️ Tampilan Aplikasi Hadirin
 
-### 🏠 Halaman Home
-![Tampilan Home](https://github.com/arditam/hadirin/blob/main/public/doc/home.jpg)
+| Halaman | Gambar |
+|--------|--------|
+| 🏠 Home | ![Home](https://github.com/arditam/hadirin/blob/main/public/doc/home.jpg) |
+| 👤 Input Anggota | ![Input Anggota](https://github.com/arditam/hadirin/blob/main/public/doc/input_anggota.jpg) |
+| 📝 Input Kegiatan | ![Input Kegiatan](https://github.com/arditam/hadirin/blob/main/public/doc/input_kegiatan.jpg) |
+| 🆔 Generate ID Anggota | ![Generate ID](https://github.com/arditam/hadirin/blob/main/public/doc/generate_id.jpg) |
+| 📷 Scan Kehadiran | ![Scan Kehadiran](https://github.com/arditam/hadirin/blob/main/public/doc/scan_kehadiran.jpg) |
+| 📆 Print Kehadiran Harian | ![Print Harian](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_harian.jpg) |
+| 🗓️ Print Kehadiran Bulanan | ![Print Bulanan](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_bulanan.jpg) |
+| 🖨️ Print ID Anggota | ![Print ID](https://github.com/arditam/hadirin/blob/main/public/doc/print_id_anggota.jpg) |
 
-### 👤 Halaman Input Anggota
-![Tampilan Halaman Input Anggota](https://github.com/arditam/hadirin/blob/main/public/doc/input_anggota.jpg)
+## 📦 Versi Cetak Tambahan
 
-### 📝 Halaman Input Kegiatan
-![Tampilan Halaman Input Kegiatan](https://github.com/arditam/hadirin/blob/main/public/doc/input_kegiatan.jpg)
-
-### 🆔 Halaman Generate ID Anggota
-![Tampilan Halaman Generate ID](https://github.com/arditam/hadirin/blob/main/public/doc/generate_id.jpg)
-
-### 📷 Halaman Scan Kehadiran
-![Tampilan Halaman Scan Kehadiran](https://github.com/arditam/hadirin/blob/main/public/doc/scan_kehadiran.jpg)
-
-### 📆 Halaman Print Kehadiran Harian
-![Tampilan Halaman Print Kehadiran Harian](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_harian.jpg)
-
-### 📆 Cetak Harian
-![Tampilan Halaman Print Kehadiran Harian](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_harian.png)
-
-
-### 🗓️ Halaman Print Kehadiran Bulanan
-![Tampilan Halaman Print Kehadiran Bulanan](https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_bulanan.jpg)
-
-### 🗓️ Cetak Bulanan
-![Tampilan Halaman Print Kehadiran Bulanan](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png)
-
-### 🖨️ Halaman Print ID Anggota
-![Tampilan Halaman Print ID Anggota](https://github.com/arditam/hadirin/blob/main/public/doc/print_id_anggota.jpg)
-
-### 🖨️ Cetak Kartu
-![Tampilan Halaman Print ID Anggota](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png)
+| Halaman | Gambar |
+|--------|--------|
+| 📆 Cetak Harian | ![Cetak Harian](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_harian.png) |
+| 🗓️ Cetak Bulanan | ![Cetak Bulanan](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png) |
+| 🖨️ Cetak Kartu | ![Cetak Kartu](https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png) |
 
 
 ## ⚙️ Setup Guide
