@@ -19,7 +19,7 @@
   <tr>
     <td align="center"><b>🗓️ Cetak Bulanan</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png" width="250"/></td>
     <td align="center"><b>🖨️ Cetak Kartu</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png" width="250"/></td>
-    <td></td>
+    
   </tr>
 </table>
 
