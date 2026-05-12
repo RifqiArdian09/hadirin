@@ -1,73 +1,98 @@
-<h2>🖼️ Tampilan Aplikasi Hadirin</h2>
+# Hadirin - Sistem Presensi Berbasis Barcode
 
-<table>
-  <tr>
-    <td align="center"><b>🏠 Home</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/home.jpg" width="250"/></td>
-    <td align="center"><b>👤 Input Anggota</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/input_anggota.jpg" width="250"/></td>
-    <td align="center"><b>📝 Input Kegiatan</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/input_kegiatan.jpg" width="250"/></td>
-  </tr>
-  <tr>
-    <td align="center"><b>🆔 Generate ID</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/generate_id.jpg" width="250"/></td>
-    <td align="center"><b>📷 Scan Kehadiran</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/scan_kehadiran.jpg" width="250"/></td>
-    <td align="center"><b>📆 Print Harian</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_harian.jpg" width="250"/></td>
-  </tr>
-  <tr>
-    <td align="center"><b>🗓️ Print Bulanan</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/kehadiran_bulanan.jpg" width="250"/></td>
-    <td align="center"><b>🖨️ Print ID</b><br><img src="https://github.com/arditam/hadirin/blob/main/public/doc/print_id_anggota.jpg" width="250"/></td>
-    <td align="center"><b>📆 Cetak Harian</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_harian.png" width="250"/></td>
-  </tr>
-  <tr>
-    <td align="center"><b>🗓️ Cetak Bulanan</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/print_blanan.png" width="250"/></td>
-    <td align="center"><b>🖨️ Cetak Kartu</b><br><img src="https://github.com/RifqiArdian09/hadirin/blob/main/public/doc/cetak.png" width="250"/></td>
-    
-  </tr>
-</table>
+**Hadirin** adalah sebuah platform manajemen kehadiran (presensi) berbasis web yang dibangun menggunakan framework Laravel. Sistem ini dirancang untuk memudahkan pencatatan kehadiran anggota pada berbagai acara (event) menggunakan teknologi pemindaian barcode/ID Card.
 
+---
 
+## 🚀 Fitur Utama
 
-## ⚙️ Setup Guide
+-   **Manajemen Pengguna**: Pengelolaan data anggota/user (Tambah, Edit, Hapus).
+-   **Manajemen Acara (Event)**: Membuat dan mengelola berbagai acara yang memerlukan absensi.
+-   **Generasi ID & Barcode**: Pembuatan Member ID otomatis beserta barcode unik untuk setiap anggota.
+-   **Sistem Pemindaian (Scanning)**: Fitur scan barcode untuk melakukan presensi secara real-time.
+-   **Cetak Kartu ID**: Fitur cetak kartu anggota (Bulk Print) yang siap digunakan.
+-   **Laporan Presensi**: Cetak laporan presensi harian dan bulanan dalam format yang rapi.
+-   **Riwayat Presensi**: Pantau riwayat kehadiran berdasarkan pengguna atau acara tertentu.
 
-### 1. Clone project
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+-   **Framework**: [Laravel 11](https://laravel.com/)
+-   **Frontend**: [Tailwind CSS](https://tailwindcss.com/) & [Vite](https://vitejs.dev/)
+-   **Database**: MySQL / SQLite (Sesuai konfigurasi `.env`)
+-   **Barcode Library**: `milon/barcode`
+-   **Lainnya**: PHP 8.2+, Composer, NPM.
+
+---
+
+## ⚙️ Instalasi
+
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek ini di lingkungan lokal Anda:
+
+### 1. Clone Repositori
 ```bash
 git clone https://github.com/RifqiArdian09/hadirin.git
 cd hadirin
 ```
-### 2. Copy file .env.example
-```bash
-copy .env.example .env
-```
-### 3. Setup database pada komputer anda, lalu masukkan kredensial-kredensialnya ke file .env.
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_hadirin5
-DB_USERNAME=root
-DB_PASSWORD=
-```
 
-### 4. Install dependency
+### 2. Instal Dependensi PHP
 ```bash
 composer install
 ```
 
-### 5. Generate application key
+### 3. Instal Dependensi Frontend
+```bash
+npm install
+```
+
+### 4. Konfigurasi Lingkungan
+Salin file `.env.example` menjadi `.env` dan sesuaikan pengaturan database Anda.
+```bash
+cp .env.example .env
+```
+Setelah itu, generate key aplikasi:
 ```bash
 php artisan key:generate
 ```
-### 6. Link storage untuk file upload
-```bash
-php artisan storage:link
-```
-### 7. Migrasi database
+
+### 5. Migrasi Database
+Jalankan migrasi untuk membuat tabel-tabel yang diperlukan:
 ```bash
 php artisan migrate
 ```
-### 8. Jalankan aplikasi
+
+### 6. Jalankan Aplikasi
+Jalankan server pengembangan Laravel dan Vite secara bersamaan:
 ```bash
-php artisan serve
+npm run dev
 ```
+Aplikasi dapat diakses di `http://127.0.0.1:8000`.
 
+---
 
-Sc.Rifqi Ardian
+## 📝 Cara Penggunaan
 
+1.  **Tambah Anggota**: Masuk ke menu Users untuk menambahkan data anggota baru.
+2.  **Generate Barcode**: Setelah anggota ditambahkan, generate Member ID dan unduh/cetak barcodenya.
+3.  **Buat Event**: Tambahkan acara baru di menu Events.
+4.  **Proses Scan**: Buka halaman Scan, pastikan scanner (hardware/kamera) siap, dan arahkan barcode anggota ke pemindai.
+5.  **Cetak Laporan**: Gunakan fitur Print untuk melihat ringkasan kehadiran.
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi selalu terbuka! Silakan lakukan *fork* pada repositori ini dan kirimkan *pull request* Anda.
+
+---
+
+## 👨‍💻 Author
+
+**Rifqi Ardian**
+-   GitHub: [@RifqiArdian09](https://github.com/RifqiArdian09)
+-   Website: [rifqiardian.my.id](https://rifqiardian.my.id)
+
+---
+
+*Dibuat dengan ❤️ untuk kemudahan manajemen event.*
